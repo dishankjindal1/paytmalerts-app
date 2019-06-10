@@ -1,0 +1,79 @@
+<div class="home container">
+    <nav class="row align-items-center">
+        <div class="col-auto">
+            <button class="btn btn-primary" ng-click="gotoScroll()">
+                <span class="text-light align-middle">VIEW</span>
+                <span class="material-icons align-middle">arrow_forward</span>
+            </button>
+        </div>
+        <div class="col text-right">
+            <button class="btn btn-danger" ng-click="gotoSettings()">
+                <span class="material-icons align-middle">settings</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="navbar navbar-default">
+        <div class="mx-auto">
+            <span class="h2 text-light">{{title | uppercase}}</span>
+        </div>
+    </div>
+
+    <!--<div class="card">
+            <ul class="list-group">
+
+                <li class="list-group-item" ng-repeat="data in paytmData" style="display:block;">
+                    <strong>{{data.money[0] | currency:"₹"}}</strong>{{data.name | uppercase}}
+                </li>
+
+            </ul>
+        </div>-->
+    <div class="row mx-auto">
+        <div class="col-sm-4 mx-auto">
+            <div class="card text-center" style="width: 310px; height: 650px">
+                <div class="card-header">
+                    <p class="h3 text-primary">Feedback Form</p>
+                    <small class="text-muted">What should be added or improved?</small>
+                </div>
+                <div class="card-body" style="margin:0; padding: 0; padding-top:5px;">
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fgamerindianhero&tabs=messages&width=300&height=500&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true&appId=267685430470734"
+                        width="300" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                        allowTransparency="true" allow="encrypted-media"></iframe>
+                </div>
+                <div class="card-footer">
+                    <p class="text-muted">Work in progress!!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 mx-auto">
+            <div class="card text-center" style="width: 310px; height: 650px">
+                <div class="card-header">
+                    <p class="h3 text-primary">Instructions</p>
+                    <small class="text-muted">New video coming soon!!</small>
+                </div>
+                <div class="card-body" style="margin:0; padding: 0; padding-top:5px;">
+                    <iframe width="306" height="500" src="https://www.youtube.com/embed/jgEWyNPDnLs" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-footer">
+                    <p class="text-muted">Dont forget to share!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 mx-auto">
+            <div class="card text-center" style="width: 310px; height: 650px">
+                <div style="z-index: 1;" class="card-header">
+                    <p class="h3 text-primary">Instagram!!</p>
+                    <small class="text-muted"><a href="https://linktr.ee/gamerindianhero">@gamerIndianHero</a></small>
+                </div>
+                <div style="z-index: 0;" class="card-body" style="margin:0; padding: 0; padding-top: 5px;">
+                    <div style="margin-top: -100px; z-index: 0;" class='embedsocial-instagram' data-ref="52a0ac1de667ca06be3e8a2507b7d723c367b918"></div>
+                </div>
+                <div style="z-index: 1;" class="card-footer" style="margin-top: -25px;">
+                    <p class="text-muted">Dont forget to follow!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

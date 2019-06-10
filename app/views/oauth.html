@@ -1,0 +1,21 @@
+<div class="container">
+    <br/>
+    <button ng-click="gotoHome()" class="btn btn-secondary material-icons">keyboard_backspace</button>
+
+    <button id="sign-in-or-out-button" class="btn btn-primary" >Sign In/Authorize</button>
+    <button id="revoke-access-button" class="btn btn-warning">Revoke access</button>
+
+    <span id="auth-status" class="text-secondary"></span>
+    <hr>
+    <div class="text-justified">
+        <!--
+        <button ng-click="listLabels()" class="btn btn-secondary float-left">Show</button>
+        -->
+        <button ng-click="listMessages()" class="btn btn-secondary float-left">Show</button>
+
+        <br/><br/>
+        <p id="labels"></p>
+        <p id="content"></p>
+
+    </div>
+</div>

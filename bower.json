@@ -1,0 +1,23 @@
+{
+  "name": "paytm",
+  "description": "Basic paytm alerts app",
+  "main": "app.js",
+  "authors": [
+    "Dishank Jindal"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "angularjs"
+  ],
+  "homepage": "",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "bootstrap": "^4.1.0",
+    "angular-route": "^1.6.9",
+    "moment": "^2.22.0",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.5",
+    "please-wait": "^0.0.5",
+    "SpinKit": "spinkit#^1.2.5"
+  }
+}

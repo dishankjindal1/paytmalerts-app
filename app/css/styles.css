@@ -1,0 +1,69 @@
+body{
+    background: black;
+}
+body > .inner {
+    display: none;
+}
+body.pg-loaded > .inner {
+    display: block;
+}
+
+div.container{
+    width: 100vw;
+}
+div.container > nav {
+    padding: 5vh 5vw 5vh 5vw;
+    text-align: center;
+}
+div.container > div {
+    padding: 1vh 2vw 2vh 2vw; 
+}
+
+div.index{
+    padding: 5vh 5vw 5vh 5vw;
+    text-align: center;
+    border-bottom: 1vw solid lightseagreen;
+    background: beige;
+}
+.text-black{
+    color: black !important;
+}
+div.index > div > p {
+    padding: 0;
+    margin: 0;
+    color: green;
+}
+
+div.scroll > div{
+    text-align: center;
+}
+
+/*
+nav > p > button > span{
+    vertical-align: middle;
+}
+div > h1 {
+    margin: 0;
+}
+*/
+/*
+    ### LIST GROUP ITEMS with animation
+*/
+.list-group li{
+    transition-timing-function: ease-out;
+    transition-duration: 0.5s;
+    transform: rotate(30);
+}
+.list-group li:hover{
+    transition-timing-function: ease-in;
+    transition-duration: 0.5s;
+    transform: rotate(30deg);
+}
+.list-group li:first-child{
+    background: rgb(0, 110, 255);
+    color: white;
+}
+.list-group li:nth-child(2){
+    background: rgb(65, 147, 255);
+    color: white;
+}

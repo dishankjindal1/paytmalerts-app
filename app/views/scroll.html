@@ -1,0 +1,109 @@
+<div class="scroll container" style="background: black">
+    <nav class="row align-items-center">
+        <div class="col-auto">
+            <button class="btn btn-primary" ng-click="gotoHome()">
+                <span class="material-icons align-middle">home</span>
+            </button>
+        </div>
+        <div class="col-auto" ng-show="scrollResult">
+            <button class="btn btn-success" ng-click="startFn()">
+                <span class="align-middle">Start</span>
+                <span class="material-icons align-middle">play_arrow</span>
+            </button>
+        </div>
+        <div class="col-auto" ng-hide="scrollResult">
+            <button class="btn btn-warning" ng-click="stopFn()">
+                <span class="align-middle">Stop</span>
+                <span class="material-icons align-middle">pause</span>
+            </button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-info" ng-click="resetFn()">
+                <span class="align-middle">REFRESH</span>
+                <span class="material-icons align-middle">warning</span>
+            </button>
+        </div>
+        <div class="col text-right">
+            <button class="btn btn-danger" ng-click="gotoSettings()">
+                <span class="material-icons align-middle">settings</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- BLOG TEXT of the week-->
+    <div class="navbar navbar-default">
+        <div class="mx-auto">
+            <span class="h2 text-light">{{title | uppercase}}</span>
+        </div>
+    </div>
+
+    <!-- All time Donators -->
+    <div class="row align-items-center" ng-if="allTimeDonors">
+        <div class="col">
+            <p class="text-light">All Time Donors</p>
+            <marquee behaviour="scroll" direction="left">
+                <span class="text-success h4 align-middle" ng-repeat="e in allTimeDonors" class="text-light h4 align-middle">
+                    <strong>{{e.money | currency:"₹"}}</strong> {{e.name | uppercase}} &nbsp;&nbsp;
+                </span>
+            </marquee>
+        </div>
+    </div>
+
+    <!-- 50+ money donators -->
+    <div class="row align-items-center" ng-if="allTimeDonors">
+        <div class="col">
+            <p class="text-light align-baseline">Donor with amount more then
+                <strong class="h4 text-warning align-baseline">{{formDisplayAmount | currency:"₹"}}</strong>
+            </p>
+            <marquee behaviour="scroll" direction="left">
+                <span class="text-success h4 align-middle" ng-repeat="e in moreThenDefined">
+                    <strong>{{e.money | currency:"₹"}}</strong> {{e.name | uppercase}} &nbsp;&nbsp;
+                </span>
+            </marquee>
+        </div>
+    </div>
+
+        <!-- paytm sponsors -->
+        <div class="row align-items-center" ng-if="allTimeDonors">
+            <div class="col">
+                <p class="text-light align-baseline">
+                    PayTM Sponsors
+                </p>
+                <marquee behaviour="scroll" direction="left">
+                    <span class="text-success h4 align-middle" ng-repeat="e in sponsors">
+                        <strong>{{e.money | currency:"₹"}}</strong> {{e.name | uppercase}} &nbsp;&nbsp;
+                    </span>
+                </marquee>
+            </div>
+        </div>
+
+    <!-- Recent Donator-->
+    <div class="row align-items-center" ng-if="allTimeDonors">
+        <div class="col">
+            <p class="text-light">Recent Donor</p>
+            <span class="text-success h4 align-middle">
+                <strong>{{recentDonor.money | currency:"₹"}}</strong> {{recentDonor.name | uppercase}} &nbsp;&nbsp;
+            </span>
+        </div>
+    </div>
+
+    <!-- HighestDonator of all time-->
+    <div class="row align-items-center" ng-if="allTimeDonors">
+        <div class="col">
+            <p class="text-light">Biggest Donation</p>
+            <span class="text-success h4 align-middle">
+                <strong>{{highestDonor.money | currency:"₹"}}</strong> {{highestDonor.name | uppercase}} &nbsp;&nbsp;
+            </span>
+        </div>
+    </div>
+</div>
+<div id="hiddenMusicPlayer"></div>
+
+<!-- BLOG TEXT of the week-->
+<div class="navbar navbar-default navbar-fixed-bottom" style="background: beige;">
+    <div class="conatiner">
+        <span id="blink" class="h2">Ask me to add more features!! Go to home page and give feedback!!
+            <blink>Alerts with sound is coming too!!</blink>
+        </span>
+    </div>
+</div>

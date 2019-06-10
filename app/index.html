@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="paytm" ng-controller="mainAppCtrl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PayTM Alerts</title>
+
+    <link rel="icon" href="favicon.png" sizes="300x300" type="image/png">
+
+    <link rel="stylesheet" href="css/normalizer.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="stylesheet" href="bower_components/SpinKit/css/spinkit.css">
+    <link rel="stylesheet" href="bower_components/please-wait/build/please-wait.css">
+    <link rel="stylesheet" href="bower_components/SpinKit/css/spinners/2-double-bounce.css">
+    <script src="bower_components/please-wait/build/please-wait.min.js"></script>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    
+</head>
+
+<body>
+    <div class="index container-fluid">
+        <nav class="align-items-center text-center">
+            <button id="sign-in-or-out-button" class="btn btn-primary">Sign In/Authorize</button>
+            <button id="revoke-access-button" class="btn btn-warning">Revoke access</button>
+        </nav>
+        <div>
+            <p id="auth-status" class="text-secondary text-center"></p>
+        </div>
+        <br/>
+        <div class="g-ytsubscribe" data-channelid="UC3T8PMDRSYknEo5PYP5HCzA" data-layout="full" data-count="default"></div>
+    </div>
+
+    <ng-cloak>
+        <div class="inner" ng-view></div>
+    </ng-cloak>
+    <script type="text/javascript">
+        var loading_screen = pleaseWait({
+            logo: "favicon.png",
+            backgroundColor: '#4CAF50',
+            loadingHtml: "<p class='loading-message h3 text-light'>HAPPY STREAMING</p><div class='sk-double-bounce'><div class='sk-child sk-double-counce1'></div><div class='sk-child sk-double-counce1'></div>"
+        });
+    </script>
+
+    <script src="js/controllers/home.js"></script>
+    <script src="js/controllers/oauth.js"></script>
+    <script src="js/controllers/settings.js"></script>
+    <script src="js/controllers/scroll.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        (function (d, s, id) {
+            var js;
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://embedsocial.com/embedscript/in.js";
+            d.getElementsByTagName("head")[0].appendChild(js);
+        }(document, "script", "EmbedSocialInstagramScript"));
+    </script>
+
+</body>
+
+</html>

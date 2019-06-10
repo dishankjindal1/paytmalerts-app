@@ -1,0 +1,64 @@
+<form name="form">
+    <div class="settings container" style="background: black">
+        <nav class="row align-items-center">
+            <div class="col-auto">
+                <button class="btn btn-primary" ng-click="gotoHome()">
+                    <span class="material-icons align-middle">home</span>
+                </button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-primary" ng-click="gotoScroll()">
+                    <span class="align-middle">VIEW</span>
+                    <span class="material-icons align-middle">keyboard_backspace</span>
+                </button>
+            </div>
+            <div class="col text-right">
+                <button class="btn" ng-class="isValidForm ? 'btn-success' : 'btn-warning'" ng-click="gotoScroll()" ng-disabled="!isValidForm">
+                    <span class="align-middle">APPLY</span>
+                    <span ng-show="isValidForm" class="material-icons align-middle">check_circle</span>
+                    <span ng-hide="isValidForm" class="material-icons align-middle">info</span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="navbar navbar-default">
+                <div class="mx-auto">
+                    <span class="h2 text-light">{{title | uppercase}}</span>
+                </div>
+            </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <label class="input-group-text">How many days of data you want ?</label>
+            </div>
+            <input ng-model="formDateData" class="form-control" type="text" id="formDateData" required>
+            <div class="input-group-append">
+                <label class="input-group-text">if you want all to be shown, enter 0</label>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <label class="input-group-text">Display the donators with the amount donated greater then?</label>
+                <span class="input-group-text">₹</span>
+            </div>
+            <input ng-model="formDisplayAmount" class="form-control" type="text" id="formDisplayAmount" required>
+        </div>
+
+        <!-- Will Work with it later
+        <div class="form-group">
+            <label class="" for="formAudioFile">Which audio File to use with alerts?</label>
+            <input ng-model="formAudioFile" class="form-control" type="text" id="formAudioFile" required>
+        </div>
+        -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Enable Audio</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+                <option value="true" selected>Yes</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+    </div>
+</form>
