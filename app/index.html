@@ -41,12 +41,17 @@
         xhr.open("GET", "https://streamlabs.com/api/v1.0/authorize?response_type=code&client_id=IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS&redirect_uri=http://paytm-alerts-alpha.herokuapp.com/&scope=donations.read+donations.create");
         
         xhr.send(data);
+
+        function authStreamlabs() {
+            window.open("https://streamlabs.com/api/v1.0/authorize?response_type=code&client_id=IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS&redirect_uri=http://paytm-alerts-alpha.herokuapp.com/&scope=donations.read+donations.create",_top);
+        }
     </script>
 </head>
 
 <body>
     <div class="index container-fluid">
         <nav class="align-items-center text-center">
+            <button id="" class="btn btn-info" onclick="authStreamlabs()">Streamlabs</button>
             <button id="sign-in-or-out-button" class="btn btn-primary">Sign In/Authorize</button>
             <button id="revoke-access-button" class="btn btn-warning">Revoke access</button>
         </nav>
