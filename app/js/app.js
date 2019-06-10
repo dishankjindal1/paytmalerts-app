@@ -30,8 +30,7 @@ angular.module('paytm', ['ngRoute', 'paytm.ctrl.oauth', 'paytm.ctrl.home', 'payt
                 controller: 'scrollCtrl',
                 templateUrl: 'views/scroll.html'
             })
-            .otherwise({ redirectTo: '/home' })
-            ;
+            .otherwise({ redirectTo: '/home' });
     }]).
     controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$interval', function ($scope, $rootScope, $location, $interval) {
 
