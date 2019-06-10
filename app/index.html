@@ -27,21 +27,6 @@
     <script src="https://apis.google.com/js/api.js"></script>
 
     <script>
-        var data = JSON.stringify(false);
-        
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
-        
-        xhr.addEventListener("readystatechange", function () {
-          if (this.readyState === this.DONE) {
-            console.log(this.responseText);
-          }
-        });
-        
-        xhr.open("GET", "https://streamlabs.com/api/v1.0/authorize?response_type=code&client_id=IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS&redirect_uri=http://paytm-alerts-alpha.herokuapp.com/&scope=donations.read+donations.create");
-        
-        xhr.send(data);
-
         function authStreamlabs() {
             window.open("https://www.streamlabs.com/api/v1.0/authorize?client_id=IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS&redirect_uri=http://paytm-alerts-alpha.herokuapp.com/#!/home&response_type=code&scope=donations.read+donations.create");
         }
