@@ -12,7 +12,6 @@ angular.module('paytm', ['ngRoute', 'paytm.ctrl.oauth', 'paytm.ctrl.home', 'payt
         $httpProvider.defaults.headers.get['If-Modified-Since'] = 'Mon, 26 Jul 1997 05:00:00 GMT';
         // extra
         $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
-        $httpProvider.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
         $httpProvider.defaults.headers.get.Pragma = 'no-cache';
         $routeProvider.
             when('/home', {
