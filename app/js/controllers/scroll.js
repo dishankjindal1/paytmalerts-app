@@ -80,7 +80,7 @@ angular.module('paytm.ctrl.scroll', []).
                                         console.log(JSON.stringify(res));
                                     },
                                     function (err) {
-                                        console.log(JSON.stringify(res));
+                                        console.log(JSON.stringify(err));
                                     });
                                     $scope.streamlabsdebug = false;
                                 //}
