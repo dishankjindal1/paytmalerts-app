@@ -36,7 +36,8 @@ angular.module('paytm', ['ngRoute', 'paytm.ctrl.oauth', 'paytm.ctrl.home', 'payt
 
         $scope.title = "paytm alerts";
 
-        var slabtoken = $location.absUrl().search('code');
+        var slabtoken = $location.absUrl().split('#!').pop();
+        var slabtoken = $location.absUrl().split('code=').pop();
 
         //Initalizers - settings.js
         $rootScope.streamlabsToken = slabtoken;
