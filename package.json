@@ -13,9 +13,9 @@
     "http-server": "*"
   },
   "scripts": {
-    "postinstall": "bower install",
-    "update-deps": "npm update",
-    "postupdate-deps": "bower update",
+    //"postinstall": "bower install",
+    //"update-deps": "npm update",
+    //"postupdate-deps": "bower update",
     "start": "node bin/www",
     "localstart": "http-server -a localhost -p 8000 -c-1 ./app",
     "pretest": "npm install"
