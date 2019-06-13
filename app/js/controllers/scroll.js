@@ -78,7 +78,7 @@ angular.module('paytm.ctrl.scroll', []).
                                     $http({
                                         url: url,
                                         method: "POST",
-                                        data: streamlabsData,
+                                        data: JSON.stringify(streamlabsData),
                                         headers: {'Content-Type':'application/x-www-form-urlencoded'}
                                     })
                                     .then(function (res){
