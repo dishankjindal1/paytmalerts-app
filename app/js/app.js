@@ -13,6 +13,8 @@ angular.module('paytm', ['ngRoute', 'paytm.ctrl.oauth', 'paytm.ctrl.home', 'payt
         // extra
         $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
         $httpProvider.defaults.headers.get.Pragma = 'no-cache';
+        $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+
         $routeProvider.
             when('/home', {
                 controller: 'homeCtrl',
