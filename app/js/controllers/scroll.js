@@ -40,7 +40,7 @@ angular.module('paytm.ctrl.scroll', []).
                                 'id': e.id,
                                 'format': 'metadata'
                             }).then(function (res) {
-                                res = res.result; var blockData = {}; var date, data = null;
+                                res = res.result; var blockData = {}; var streamlabsData = {}, var date, data = null;
                                 for (var headerIndex = 0; headerIndex < res.payload.headers.length; headerIndex++) {
                                     if (res.payload.headers[headerIndex].name == 'Date') {
                                         var x = moment();
@@ -74,11 +74,20 @@ angular.module('paytm.ctrl.scroll', []).
                                     skip_alert: 'no'
                                 };
                                 var url = 'https://streamlabs.com/api/v1.0/donations';
+                                var payload = new FormData();
+                                payload.append(streamlabsData.name);
+                                payload.append(streamlabsData.message);
+                                payload.append(streamlabsData.identifier);
+                                payload.append(streamlabsData.amount);
+                                payload.append(streamlabsData.currency);
+                                payload.append(streamlabsData.date);
+                                payload.append(streamlabsData.access_token);
+                                payload.append(streamlabsData.skip_alert);
                                 //if($scope.streamlabsdebug){
                                     $http({
                                         url: url,
                                         method: "POST",
-                                        data: JSON.stringify(streamlabsData),
+                                        data: payload,
                                         headers: {'Content-Type':'application/x-www-form-urlencoded'}
                                     })
                                     .then(function (res){
