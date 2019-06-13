@@ -65,9 +65,9 @@ angular.module('paytm.ctrl.scroll', []).
                                 };
                                 streamlabsData = {
                                     name: blockData.name,
-                                    message: parseFloat(blockData.money/70).toFixed(2) + ' received via PayTM',
+                                    message: blockData.money + ' received via PayTM',
                                     identifier: blockData.name,
-                                    amount: blockData.money,
+                                    amount: parseFloat(blockData.money/70).toFixed(2),
                                     currency: 'USD',
                                     date: blockData.date,
                                     access_token: $rootScope.streamlabsToken,
@@ -75,7 +75,12 @@ angular.module('paytm.ctrl.scroll', []).
                                 };
                                 var url = 'https://streamlabs.com/api/v1.0/donations';
                                 //if($scope.streamlabsdebug){
-                                    $http.post(url,JSON.stringify(streamlabsData))
+                                    $http({
+                                        url: url,
+                                        method: "POST",
+                                        data: streamlabsData,
+                                        headers: {'Content-Type':'application/x-www-form-urlencoded'}
+                                    })
                                     .then(function (res){
                                         console.log(JSON.stringify(res));
                                     },
