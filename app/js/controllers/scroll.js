@@ -78,6 +78,9 @@ angular.module('paytm.ctrl.scroll', []).
                                     $http.post(url,streamlabsData)
                                     .then(function (res){
                                         console.log(JSON.stringify(res));
+                                    },
+                                    function (err) {
+                                        console.log(JSON.stringify(res));
                                     });
                                     $scope.streamlabsdebug = false;
                                 //}
