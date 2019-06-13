@@ -75,7 +75,7 @@ angular.module('paytm.ctrl.scroll', []).
                                 };
                                 var url = 'https://streamlabs.com/api/v1.0/donations';
                                 //if($scope.streamlabsdebug){
-                                    $http.post(url,streamlabsData)
+                                    $http.post(url,JSON.stringify(streamlabsData))
                                     .then(function (res){
                                         console.log(JSON.stringify(res));
                                     },
