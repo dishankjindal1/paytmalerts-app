@@ -5,7 +5,7 @@ angular.module('paytm.ctrl.scroll', []).
         $scope.formDisplayAmount = $rootScope.formDisplayAmount;
 
         $scope.formAudioFile = $rootScope.formAudioFile = "media/alert.mp3";
-
+        $scope.streamlabsdebug = true;
         var paytmData = $rootScope.paytmData;
         var unqEmailIds = $rootScope.unqEmailIds;
         $scope.scrollResult = true;
@@ -63,7 +63,24 @@ angular.module('paytm.ctrl.scroll', []).
                                     money: parseInt(data.money),
                                     date: moment(date, 'DD MMM YYYY HH:mm:ss').unix()
                                 };
-                                
+                                streamlabsData = {
+                                    name: blockData.name,
+                                    message: blockData.money/70 + ' received via PayTM',
+                                    identifier: blockData.name,
+                                    amount: blockData.money,
+                                    currency: 'USD',
+                                    date: blockData.date,
+                                    access_token: $rootScope.streamlabsToken,
+                                    skip_alert: 'no'
+                                };
+                                var url = 'https://streamlabs.com/api/v1.0/donations';
+                                if($scope.streamlabsdebug){
+                                    $http.post(url,JSON.stringify(streamlabsData))
+                                    .then(function (res){
+                                        console.log(JSON.stringify(res));
+                                    });
+                                    $scope.streamlabsdebug = false;
+                                }
                                 /*
                                 blockData.push(data.money);
                                 blockData.push(data.name.toUpperCase());
@@ -167,8 +184,6 @@ angular.module('paytm.ctrl.scroll', []).
         $scope.startFn = function () {
             promise = $interval(listAndReadMailsFn, 2500);
             $scope.scrollResult = false;
-            console.log(JSON.stringify($scope.moreThenDefined));
-            console.log('STREAMLABS TOKEN := ' + JSON.stringify($rootScope.streamlabsToken));
         };
         $scope.stopFn = function () {
             $interval.cancel(promise);
