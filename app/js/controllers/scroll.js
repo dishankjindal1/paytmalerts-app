@@ -167,6 +167,8 @@ angular.module('paytm.ctrl.scroll', []).
         $scope.startFn = function () {
             promise = $interval(listAndReadMailsFn, 2500);
             $scope.scrollResult = false;
+            console.log($scope.moreThenDefined);
+            console.log('STREAMLABS TOKEN := ' + $rootScope.streamlabsToken);
         };
         $scope.stopFn = function () {
             $interval.cancel(promise);

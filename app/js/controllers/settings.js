@@ -2,7 +2,6 @@ angular.module('paytm.ctrl.settings', []).
     controller('settingsCtrl', ['$scope', '$rootScope', '$interval', '$timeout', function ($scope, $rootScope, $interval, $timeout) {
         $scope.title = "Settings";
 
-
         $scope.isValidForm = true; 
 
         $('#formDateData').keyup(function () {

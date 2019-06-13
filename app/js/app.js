@@ -35,7 +35,13 @@ angular.module('paytm', ['ngRoute', 'paytm.ctrl.oauth', 'paytm.ctrl.home', 'payt
     controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$interval', function ($scope, $rootScope, $location, $interval) {
 
         $scope.title = "paytm alerts";
+
+        var url_string = $location.href;
+        var url = new URL(url_string);
+        var slabtoken = url.searchParams.get("code");
+
         //Initalizers - settings.js
+        $rootScope.streamlabsToken = slabtoken;
         $rootScope.formDateData = 6;
         $rootScope.formDisplayAmount = 50;
         $rootScope.formAudioFile = "media/alert.mp3";
