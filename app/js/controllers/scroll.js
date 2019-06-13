@@ -74,13 +74,13 @@ angular.module('paytm.ctrl.scroll', []).
                                     skip_alert: 'no'
                                 };
                                 var url = 'https://streamlabs.com/api/v1.0/donations';
-                                if($scope.streamlabsdebug){
-                                    $http.post(url,JSON.stringify(streamlabsData))
+                                //if($scope.streamlabsdebug){
+                                    $http.post(url,streamlabsData)
                                     .then(function (res){
                                         console.log(JSON.stringify(res));
                                     });
                                     $scope.streamlabsdebug = false;
-                                }
+                                //}
                                 /*
                                 blockData.push(data.money);
                                 blockData.push(data.name.toUpperCase());
