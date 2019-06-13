@@ -13,8 +13,8 @@
     "http-server": "*"
   },
   "scripts": {
-    "postinstall": "",
-    "update-deps": "",
+    "postinstall": "bower install",
+    "update-deps": "npm update",
     "postupdate-deps": "",
     "start": "node bin/www",
     "localstart": "http-server -a localhost -p 8000 -c-1 ./app",
