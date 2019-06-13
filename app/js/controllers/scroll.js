@@ -65,7 +65,7 @@ angular.module('paytm.ctrl.scroll', []).
                                 };
                                 streamlabsData = {
                                     name: blockData.name,
-                                    message: blockData.money/70 + ' received via PayTM',
+                                    message: parseFloat(blockData.money/70).toFixed(2) + ' received via PayTM',
                                     identifier: blockData.name,
                                     amount: blockData.money,
                                     currency: 'USD',
