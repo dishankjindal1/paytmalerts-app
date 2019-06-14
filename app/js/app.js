@@ -100,7 +100,8 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
         };
         var queryString = Object.keys(queryToken).map(key => key + '=' + queryToken[key]).join('&');
 
-        $http.post(tokenUrl, {queryToken})
+        var config = 'content-type';
+        $http.post(tokenUrl, JSON.stringify(queryToken), config)
             .then(
                 function (res) {
                     console.log('initStreamlabs := ' + JSON.stringify(res));
@@ -112,7 +113,7 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
 
     };
     $('#authStreamlabs').click(function () {
-        initStreamlabs();
+        $window.open
     });
 
     function handleAuthClick() {
