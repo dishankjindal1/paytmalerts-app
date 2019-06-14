@@ -35,7 +35,7 @@ config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvid
             redirectTo: '/home'
         });
 }]).
-controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
+controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$window', function ($scope, $rootScope, $location, $http, $window) {
 
     $scope.title = "paytm alerts";
 
@@ -85,15 +85,22 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', functio
     };
 
     function initStreamlabs() {
-        var authUrl = "https://streamlabs.com/api/v1.0/authorize";
+        var tokenUrl = "https://streamlabs.com/api/v1.0/token";
         var query = {
             response_type: 'code',
             client_id: 'IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS',
             redirect_uri: 'http://paytm-alerts-alpha.herokuapp.com',
             scope: 'donations.read+donations.create'
         };
+        var queryToken = {
+            grant_type: 'authorization_code',
+            client_id: 'IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS',
+            client_secret: 'Fr0Sl3nG44zZJM2qFG2rbT8jf0BQG1y1oQBQtPx1',
+            redirect_uri: 'http://paytm-alerts-alpha.herokuapp.com'
+        };
+        var queryString = Object.keys(queryToken).map(key => key + '=' + queryToken[key]).join('&');
 
-        $http.get(authUrl, query)
+        $http.post(tokenUrl, queryToken)
             .then(
                 function (res) {
                     console.log('initStreamlabs := ' + JSON.stringify(res));
@@ -102,6 +109,7 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', functio
                     console.log('ERROR initstreamlabs := ' + JSON.stringify(err));
                 }
             );
+
     };
     $('#authStreamlabs').click(function () {
         initStreamlabs();
