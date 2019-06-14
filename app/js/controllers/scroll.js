@@ -83,7 +83,10 @@ angular.module('paytm.ctrl.scroll', []).
                                 payload.append(streamlabsData.date);
                                 payload.append(streamlabsData.access_token);
                                 payload.append(streamlabsData.skip_alert);
-                                //if($scope.streamlabsdebug){
+                                var request = new XMLHttpRequest();
+                                request.open("POST",url);
+                                request.send(payload);
+                                /*if($scope.streamlabsdebug){
                                     $http({
                                         url: url,
                                         method: "POST",
