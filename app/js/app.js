@@ -1,6 +1,6 @@
 angular.module('paytm', ['ngRoute', 'paytm.ctrl.oauth', 'paytm.ctrl.home', 'paytm.ctrl.settings', 'paytm.ctrl.scroll']).
 config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
-    //initialize get if not there
+    /*initialize get if not there
     if (!$httpProvider.defaults.headers.get) {
         $httpProvider.defaults.headers.get = {};
     }
@@ -13,7 +13,7 @@ config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvid
     // extra
     $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
     $httpProvider.defaults.headers.get.Pragma = 'no-cache';
-
+    */
     $routeProvider.
     when('/home', {
         controller: 'homeCtrl',
@@ -93,21 +93,18 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', functio
             scope: 'donations.read+donations.create'
         };
 
-        $http({
-            url: authUrl,
-            method: 'GET',
-            params: query
-        }).then(
-            function (res) {
-                console.log('initStreamlabs := ' + JSON.stringify(res));
-            },
-            function (err) {
-                console.log('ERROR initstreamlabs := ' + JSON.stringify(err));
-            }
-        );
+        $http.get(authUrl, query)
+            .then(
+                function (res) {
+                    console.log('initStreamlabs := ' + JSON.stringify(res));
+                },
+                function (err) {
+                    console.log('ERROR initstreamlabs := ' + JSON.stringify(err));
+                }
+            );
     };
-    $('#authStreamlabs').click(function(){
-            initStreamlabs();
+    $('#authStreamlabs').click(function () {
+        initStreamlabs();
     });
 
     function handleAuthClick() {
