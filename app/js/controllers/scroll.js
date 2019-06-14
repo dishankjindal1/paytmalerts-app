@@ -92,12 +92,12 @@ controller('scrollCtrl', ['$scope', '$rootScope', '$location', '$interval', '$wi
                             payload.append("data", streamlabsData.date);
                             payload.append("access_token", streamlabsData.access_token);
                             payload.append("skip_alert", streamlabsData.skip_alert);
-                            /*
+                            ///*
                             var request = new XMLHttpRequest();
                             request.open("POST",url);
                             request.send(payload);
-                            */
-                            //if($scope.streamlabsdebug){
+                            //*/
+                            /*if($scope.streamlabsdebug){
                             $http({
                                     url: url,
                                     method: "POST",
