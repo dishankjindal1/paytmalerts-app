@@ -40,7 +40,7 @@ angular.module('paytm.ctrl.scroll', []).
                                 'id': e.id,
                                 'format': 'metadata'
                             }).then(function (res) {
-                                res = res.result; var blockData = {}; var streamlabsData = {}, var date, data = null;
+                                res = res.result; var blockData = {}; var streamlabsData = {}; var date, data = null;
                                 for (var headerIndex = 0; headerIndex < res.payload.headers.length; headerIndex++) {
                                     if (res.payload.headers[headerIndex].name == 'Date') {
                                         var x = moment();
