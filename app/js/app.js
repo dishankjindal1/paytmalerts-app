@@ -90,8 +90,8 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', functio
             response_type: 'code',
             client_id: 'IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS',
             redirect_uri: 'http://paytm-alerts-alpha.herokuapp.com',
-            scope: ['donations.read', 'donations.create']
-        }
+            scope: 'donations.read+donations.create'
+        };
 
         $http({
             url: authUrl,
