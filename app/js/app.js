@@ -63,9 +63,9 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
         var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest';
 
         gapi.client.init({
-            'apiKey': 'AIzaSyDKLxC_asJTktXLyuuA_w_RXU3dILYIZhI',
+            'apiKey': 'AIzaSyDMHweLtbDVvEhCSxYJyXoBGhZViebZqyc',
             'discoveryDocs': [discoveryUrl],
-            'clientId': '495884395031-q7it5skfpnrofvkm7bjpiebodv3fvmcm',
+            'clientId': '348121176574-3e4cd7hu74ph2lua1h40i3kvv21ad2bn.apps.googleusercontent.com',
             'scope': SCOPE
         }).then(function () {
             GoogleAuth = gapi.auth2.getAuthInstance();
