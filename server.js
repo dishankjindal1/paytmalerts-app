@@ -22,13 +22,6 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-app.all(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-  next();
-});
-
 /*// error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

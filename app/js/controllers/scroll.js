@@ -103,9 +103,7 @@ controller('scrollCtrl', ['$scope', '$rootScope', '$location', '$interval', '$wi
                                     url: url,
                                     method: "POST",
                                     params: streamlabsData,
-                                    headers: {
-                                        'Content-Type': 'application/x-www-form-urlencoded'
-                                    }
+                                    //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                                 })
                                 .then(function (res) {
                                         console.log(JSON.stringify(res));
