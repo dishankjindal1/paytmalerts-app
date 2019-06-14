@@ -101,7 +101,7 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
         var queryString = Object.keys(queryToken).map(key => key + '=' + queryToken[key]).join('&');
 
         var config = 'content-type';
-        $http.post(tokenUrl, JSON.stringify(queryToken), config)
+        $http.post(tokenUrl, JSON.stringify(queryToken))
             .then(
                 function (res) {
                     console.log('initStreamlabs := ' + JSON.stringify(res));
