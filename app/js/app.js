@@ -65,7 +65,7 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
         gapi.client.init({
             'apiKey': 'AIzaSyDMHweLtbDVvEhCSxYJyXoBGhZViebZqyc',
             'discoveryDocs': [discoveryUrl],
-            'clientId': '348121176574-3e4cd7hu74ph2lua1h40i3kvv21ad2bn',
+            'clientId': '348121176574-3e4cd7hu74ph2lua1h40i3kvv21ad2bn.apps.googleusercontent.com',
             'scope': SCOPE
         }).then(function () {
             GoogleAuth = gapi.auth2.getAuthInstance();
