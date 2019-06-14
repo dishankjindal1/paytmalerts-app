@@ -113,7 +113,7 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
 
     };
     $('#authStreamlabs').click(function () {
-        initStreamlabs(;
+        initStreamlabs();
     });
 
     function handleAuthClick() {
