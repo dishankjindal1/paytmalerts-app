@@ -58,7 +58,8 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
 
     //Start
     var GoogleAuth;
-    var SCOPE = 'https://www.googleapis.com/auth/userinfo.email';
+    var SCOPE = 'https://mail.google.com/';
+    //var SCOPE = 'https://mail.google.com/';
 
     var initClient = function () {
         var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest';
