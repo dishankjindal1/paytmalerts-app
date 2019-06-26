@@ -1,19 +1,20 @@
 angular.module('paytm', ['ngRoute', 'paytm.ctrl.oauth', 'paytm.ctrl.home', 'paytm.ctrl.settings', 'paytm.ctrl.scroll']).
 config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
-    /*initialize get if not there
+    //initialize get if not there
     if (!$httpProvider.defaults.headers.get) {
         $httpProvider.defaults.headers.get = {};
     }
 
     // Answer edited to include suggestions from comments
     // because previous version of code introduced browser-related errors
-
+    $httpProvider.defaults.headers.common.ACCEPT = '*/*';
+    $httpProvider.defaults.headers.common['If-Modified-Since'] = 'Mon, 26 Jul 1997 05:00:00 GMT';
     //disable IE ajax request caching
-    $httpProvider.defaults.headers.get['If-Modified-Since'] = 'Mon, 26 Jul 1997 05:00:00 GMT';
+    $httpProvider.defaults.headers.common['If-Modified-Since'] = 'Mon, 26 Jul 1997 05:00:00 GMT';
     // extra
-    $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
-    $httpProvider.defaults.headers.get.Pragma = 'no-cache';
-    */
+    $httpProvider.defaults.headers.common['Cache-Control'] = 'no-cache';
+    $httpProvider.defaults.headers.common.Pragma = 'no-cache';
+    
     $routeProvider.
     when('/home', {
         controller: 'homeCtrl',
@@ -83,38 +84,6 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
             });
         });
     };
-
-    function initStreamlabs() {
-        var tokenUrl = "https://streamlabs.com/api/v1.0/token";
-        var query = {
-            response_type: 'code',
-            client_id: 'IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS',
-            redirect_uri: 'http://paytm-alerts-alpha.herokuapp.com',
-            scope: 'donations.read+donations.create'
-        };
-        var queryToken = {
-            grant_type: 'authorization_code',
-            client_id: 'IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS',
-            client_secret: 'Fr0Sl3nG44zZJM2qFG2rbT8jf0BQG1y1oQBQtPx1',
-            redirect_uri: 'http://paytm-alerts-alpha.herokuapp.com'
-        };
-        var queryString = Object.keys(queryToken).map(key => key + '=' + queryToken[key]).join('&');
-
-        var config = 'content-type';
-        $http.post(tokenUrl, JSON.stringify(queryToken))
-            .then(
-                function (res) {
-                    console.log('initStreamlabs := ' + JSON.stringify(res));
-                },
-                function (err) {
-                    console.log('ERROR initstreamlabs := ' + JSON.stringify(err));
-                }
-            );
-
-    };
-    $('#authStreamlabs').click(function () {
-        initStreamlabs();
-    });
 
     function handleAuthClick() {
         if (GoogleAuth.isSignedIn.get()) {

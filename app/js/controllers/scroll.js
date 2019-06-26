@@ -82,37 +82,7 @@ controller('scrollCtrl', ['$scope', '$rootScope', '$location', '$interval', '$wi
                                 access_token: $rootScope.streamlabsToken,
                                 skip_alert: 'no'
                             };
-                            var url = 'https://streamlabs.com/api/v1.0/donations';
-                            /*
-                            var payload = new FormData();
-                            payload.append("name", streamlabsData.name);
-                            payload.append("message", streamlabsData.message);
-                            payload.append("identifier", streamlabsData.identifier);
-                            payload.append("amount", streamlabsData.amount);
-                            payload.append("currency", streamlabsData.currency);
-                            payload.append("data", streamlabsData.date);
-                            payload.append("access_token", streamlabsData.access_token);
-                            payload.append("skip_alert", streamlabsData.skip_alert);
-                            /*
-                            var request = new XMLHttpRequest();
-                            request.open("POST",url);
-                            request.send(payload);
-                            */
-                            ///*if($scope.streamlabsdebug){
-                            $http({
-                                    url: url,
-                                    method: "POST",
-                                    params: streamlabsData,
-                                    //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                                })
-                                .then(function (res) {
-                                        console.log(JSON.stringify(res));
-                                    },
-                                    function (err) {
-                                        console.log(JSON.stringify(err));
-                                    });
-                            $scope.streamlabsdebug = false;
-                            //}
+                            initStreamlabs();
                             /*
                             blockData.push(data.money);
                             blockData.push(data.name.toUpperCase());
@@ -172,6 +142,38 @@ controller('scrollCtrl', ['$scope', '$rootScope', '$location', '$interval', '$wi
             $scope.sponsors = sponsors;
         }
         runFunScript();
+
+        function initStreamlabs() {
+            var url = "https://streamlabs.com/api/v1.0";
+            var query = {
+                response_type: 'code',
+                client_id: 'IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS',
+                redirect_uri: 'http://paytm-alerts-alpha.herokuapp.com',
+                scope: 'donations.read+donations.create'
+            };
+            var queryToken = {
+                grant_type: 'authorization_code',
+                client_id: 'IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS',
+                client_secret: 'Fr0Sl3nG44zZJM2qFG2rbT8jf0BQG1y1oQBQtPx1',
+                redirect_uri: 'http://localhost:3000',
+                code: $rootScope.streamlabsToken
+            };
+            var queryString = Object.keys(queryToken).map(key => key + '=' + queryToken[key]).join('&');
+            var tokenUrl = url+'/token?'+queryString;
+            console.log(tokenUrl);
+    
+            var config = 'content-type';
+            $http.post(tokenUrl, queryString)
+                .then(
+                    function (res) {
+                        console.log('initStreamlabs := ' + JSON.stringify(res));
+                    },
+                    function (err) {
+                        console.log('ERROR initstreamlabs := ' + JSON.stringify(err));
+                    }
+                );
+    
+        };
 
         /*
         function highestDonatorFn() {
