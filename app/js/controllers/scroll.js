@@ -22,12 +22,28 @@ controller('scrollCtrl', ['$scope', '$rootScope', '$location', '$interval', '$wi
     var highestDonatorWeekly = null;
     $scope.highestDonatorWeekly = highestDonatorWeekly;
 
+    /*
+    var labelid = null;
+    gapi.client.gmail.users.labels.list({'userId':'me'})
+    .then( function(res) {
+        console.log(JSON.stringify(res.result.labels));
+        _.forEach(res.result.labels, function(e){
+            if(e.name == 'PAYTM'){
+                labelid = e.id;
+                alert(e.id);
+                return;
+            }
+        });
+    });
+    */
+
     var listAndReadMailsFn = function (q) {
         //var query = $rootScope.formDateData == 0 ? { 'userId': 'me', 'q': 'is:paytm' } : { 'userId': 'me', 'q': 'is:paytm', 'maxResults': $rootScope.formDateData };
         var query = {
             'userId': 'me',
             'q': 'is:paytm'
         };
+
         gapi.client.gmail.users.messages.list(query)
             .then(function (res) {
                 _.forEach(res.result.messages, function (e) {
