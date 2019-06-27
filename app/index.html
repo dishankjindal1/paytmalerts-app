@@ -25,10 +25,14 @@
 
     <script src="https://apis.google.com/js/platform.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-    <script> 
-        function authStreamlabs(){
-            window.open('https://www.streamlabs.com/api/v1.0/authorize?client_id=IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS&redirect_uri=http://localhost:3000&response_type=code&scope=donations.read+donations.create','_self');
+
+    <script>
+        function authStreamlabs() {
+            window.open(
+                'https://www.streamlabs.com/api/v1.0/authorize?client_id=IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS&redirect_uri=http://localhost:3000&response_type=code&scope=donations.read+donations.create',
+                '_self');
         }
     </script>
 
@@ -36,17 +40,42 @@
 
 <body>
     <div class="index container-fluid">
-        <nav class="align-items-center text-center">
-            <button id="" class="btn btn-info" onclick="authStreamlabs()">Streamlabs</button>
-            <button id="sign-in-or-out-button" class="btn btn-primary">Sign In/Authorize</button>
-            <button id="revoke-access-button" class="btn btn-warning">Revoke access</button>
-        </nav>
-        <div>
-            <p id="auth-status" class="text-secondary text-center"></p>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-6">
+                <div class="row">
+                    <B> use <a href="https://paytm-alerts-alpha.herokuapp.com">HTTPS</a> version of the site.</B>
+                </div>
+                <div class="row">
+                    <nav>
+                        <!--<button id="" class="btn btn-info" onclick="authStreamlabs()">Streamlabs</button>-->
+                        <button id="sign-in-or-out-button" class="btn btn-primary">Sign In/Authorize</button>
+                        <button id="revoke-access-button" class="btn btn-warning">Revoke access</button>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div>
+                        <p id="auth-status" class="text-secondary"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-1 row">
+                    <div class="g-ytsubscribe" data-channelid="UC3T8PMDRSYknEo5PYP5HCzA" data-layout="compact"
+                        data-count="default">
+                    </div>
+                </div>
+                <div class="mb-1 row">
+                        <a href="https://twitter.com/GamerIndianHero?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="true">Follow @GamerIndianHero</a>
+                </div>
+
+                <div class="row">
+                    <div class="fb-like" data-href="https://www.facebook.com/GamerIndianHero" data-width=""
+                        data-layout="standard" data-action="like" data-size="small" data-show-faces="true"
+                        data-share="true"></div>
+                </div>
+            </div>
         </div>
-        <br />
-        <div class="g-ytsubscribe" data-channelid="UC3T8PMDRSYknEo5PYP5HCzA" data-layout="full" data-count="default">
-        </div>
+
     </div>
 
     <ng-cloak>
@@ -84,7 +113,10 @@
             d.getElementsByTagName("head")[0].appendChild(js);
         }(document, "script", "EmbedSocialInstagramScript"));
     </script>
-
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.3&appId=267685430470734&autoLogAppEvents=1">
+    </script>
 </body>
 
 </html>
