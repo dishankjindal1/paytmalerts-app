@@ -71,7 +71,7 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
             'scope': SCOPE
         }).then(function () {
             GoogleAuth = gapi.auth2.getAuthInstance();
-
+            
             GoogleAuth.isSignedIn.listen(updateSigninStatus);
 
             var user = GoogleAuth.currentUser.get();
@@ -90,7 +90,7 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
         if (GoogleAuth.isSignedIn.get()) {
             GoogleAuth.signOut();
         } else {
-            GoogleAuth.signIn();
+            GoogleAuth.signIn({'ux_mode':'redirect'});
         }
     }
 
