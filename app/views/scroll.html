@@ -1,4 +1,4 @@
-<div class="scroll container" style="background: black">
+<div class="scroll container" style="background: green">
     <nav class="row align-items-center">
         <div class="col-auto">
             <button class="btn btn-primary" ng-click="gotoHome()">
@@ -42,7 +42,7 @@
         <div class="col">
             <p class="text-light">All Time Donors</p>
             <marquee behaviour="scroll" direction="left">
-                <span class="text-success h4 align-middle" ng-repeat="e in allTimeDonors" class="text-light h4 align-middle">
+                <span class="text-dark h4 align-middle" ng-repeat="e in allTimeDonors" class="text-light h4 align-middle">
                     <strong>{{e.money | currency:"₹"}}</strong> {{e.name | uppercase}} &nbsp;&nbsp;
                 </span>
             </marquee>
@@ -56,7 +56,7 @@
                 <strong class="h4 text-warning align-baseline">{{formDisplayAmount | currency:"₹"}}</strong>
             </p>
             <marquee behaviour="scroll" direction="left">
-                <span class="text-success h4 align-middle" ng-repeat="e in moreThenDefined">
+                <span class="text-dark h4 align-middle" ng-repeat="e in moreThenDefined">
                     <strong>{{e.money | currency:"₹"}}</strong> {{e.name | uppercase}} &nbsp;&nbsp;
                 </span>
             </marquee>
@@ -70,7 +70,7 @@
                     PayTM Sponsors
                 </p>
                 <marquee behaviour="scroll" direction="left">
-                    <span class="text-success h4 align-middle" ng-repeat="e in sponsors">
+                    <span class="text-dark h4 align-middle" ng-repeat="e in sponsors">
                         <strong>{{e.money | currency:"₹"}}</strong> {{e.name | uppercase}} &nbsp;&nbsp;
                     </span>
                 </marquee>
@@ -81,7 +81,7 @@
     <div class="row align-items-center" ng-if="allTimeDonors">
         <div class="col">
             <p class="text-light">Recent Donor</p>
-            <span class="text-success h4 align-middle">
+            <span class="text-dark h4 align-middle">
                 <strong>{{recentDonor.money | currency:"₹"}}</strong> {{recentDonor.name | uppercase}} &nbsp;&nbsp;
             </span>
         </div>
@@ -91,7 +91,7 @@
     <div class="row align-items-center" ng-if="allTimeDonors">
         <div class="col">
             <p class="text-light">Biggest Donation</p>
-            <span class="text-success h4 align-middle">
+            <span class="text-dark h4 align-middle">
                 <strong>{{highestDonor.money | currency:"₹"}}</strong> {{highestDonor.name | uppercase}} &nbsp;&nbsp;
             </span>
         </div>
