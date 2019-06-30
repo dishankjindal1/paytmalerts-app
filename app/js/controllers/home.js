@@ -13,5 +13,5 @@ angular.module('paytm.ctrl.home', []).
         $scope.gotoOAUTH = function () {
             $location.path('/oauth');
         };
-
     }]);
+    

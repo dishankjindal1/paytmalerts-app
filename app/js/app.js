@@ -1,5 +1,8 @@
 angular.module('paytm', ['ngRoute', 'paytm.ctrl.oauth', 'paytm.ctrl.home', 'paytm.ctrl.settings', 'paytm.ctrl.scroll']).
-config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
+config(['$locationProvider','$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider, $httpProvider) {
+    
+    // $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('GiveMeCreditsOrShoutout#');
     //initialize get if not there
     if (!$httpProvider.defaults.headers.get) {
         $httpProvider.defaults.headers.get = {};
@@ -36,6 +39,7 @@ config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvid
             redirectTo: '/home'
         });
 }]).
+
 controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$window', function ($scope, $rootScope, $location, $http, $window) {
 
     $scope.title = "paytm alerts";
@@ -69,8 +73,8 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
             'discoveryDocs': [discoveryUrl],
             'clientId': '189720157444-tajqkn9p9fbuu2o8fe5pleh4hsi7002l',
             'scope': SCOPE,
-            'ux_mode': 'popup',
-            'redirect_uri': ''
+            'ux_mode':'redirect',
+            'redirect_uri':'http://localhost:3000'
         }).then(function () {
             GoogleAuth = gapi.auth2.getAuthInstance();
             
