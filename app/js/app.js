@@ -59,7 +59,7 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
     //Start
     var GoogleAuth;
     //var SCOPE = 'https://www.googleapis.com/auth/gmail.metadata https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.profile openid';
-    var SCOPE = 'https://mail.google.com/';
+    var SCOPE = 'profile email openid https://mail.google.com/';
 
     var initClient = function () {
         var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest';
@@ -68,7 +68,9 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
             'apiKey': 'AIzaSyB1qe7H1_U5ssEmrtR4ndoyULobsjU_5Mg',
             'discoveryDocs': [discoveryUrl],
             'clientId': '189720157444-tajqkn9p9fbuu2o8fe5pleh4hsi7002l',
-            'scope': SCOPE
+            'scope': SCOPE,
+            'ux_mode': 'popup',
+            'redirect_uri': ''
         }).then(function () {
             GoogleAuth = gapi.auth2.getAuthInstance();
             
@@ -90,7 +92,7 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
         if (GoogleAuth.isSignedIn.get()) {
             GoogleAuth.signOut();
         } else {
-            GoogleAuth.signIn({'ux_mode':'redirect'});
+            GoogleAuth.signIn();
         }
     }
 
