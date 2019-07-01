@@ -40,7 +40,7 @@
     <!-- All time Donators -->
     <div class="row align-items-center" ng-if="allTimeDonors">
         <div class="col">
-            <p class="text-white">All Time Donors</p>
+            <p class="h4 text-white">All Time Donors</p>
             <marquee behaviour="scroll" direction="left">
                 <span class="h4 text-white bg-dark align-middle" ng-repeat="e in allTimeDonors" class="text-light h4 align-middle">
                     <strong>{{e.money | currency:"₹"}}</strong> {{e.name | uppercase}} &nbsp;&nbsp;
@@ -52,7 +52,7 @@
     <!-- 50+ money donators -->
     <div class="row align-items-center" ng-if="allTimeDonors">
         <div class="col">
-            <p class="text-info align-baseline">Donor with amount more then
+            <p class="h4 text-info align-baseline">Donor with amount more then
                 <strong class="h4 text-warning align-baseline">{{formDisplayAmount | currency:"₹"}}</strong>
             </p>
             <marquee behaviour="scroll" direction="left">
@@ -66,7 +66,7 @@
         <!-- paytm sponsors -->
         <div class="row align-items-center" ng-if="allTimeDonors">
             <div class="col">
-                <p class="text-info align-baseline">
+                <p class="h4 text-info align-baseline">
                     PayTM Sponsors
                 </p>
                 <marquee behaviour="scroll" direction="left">
@@ -80,7 +80,7 @@
     <!-- Recent Donator-->
     <div class="row align-items-center" ng-if="allTimeDonors">
         <div class="col">
-            <p class="text-info">Recent Donor</p>
+            <p class="h4 text-info">Recent Donor</p>
             <span class="h4 text-white bg-dark align-middle">
                 <strong>{{recentDonor.money | currency:"₹"}}</strong> {{recentDonor.name | uppercase}} &nbsp;&nbsp;
             </span>
@@ -90,7 +90,7 @@
     <!-- HighestDonator of all time-->
     <div class="row align-items-center" ng-if="allTimeDonors">
         <div class="col">
-            <p class="text-info">Biggest Donation</p>
+            <p class="h4 text-info">Biggest Donation</p>
             <span class="h4 text-white bg-dark align-middle">
                 <strong>{{highestDonor.money | currency:"₹"}}</strong> {{highestDonor.name | uppercase}} &nbsp;&nbsp;
             </span>
@@ -102,7 +102,7 @@
 <!-- BLOG TEXT of the week-->
 <div class="navbar navbar-default navbar-fixed-bottom" style="background: beige;">
     <div class="conatiner">
-        <span id="blink" class="h2">Ask me to add more features!! Go to home page and give feedback!!
+        <span id="blink" class="h3">Ask me to add more features!! Go to home page and give feedback!!
             <blink>Alerts with sound is coming too!!</blink>
         </span>
     </div>
