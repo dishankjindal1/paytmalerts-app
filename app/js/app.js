@@ -49,8 +49,8 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
 
     //Initalizers - settings.js
     $rootScope.streamlabsToken = slabtoken;
-    $rootScope.formDateData = 6;
-    $rootScope.formDisplayAmount = 50;
+    $rootScope.formDateData = 30;
+    $rootScope.formDisplayAmount = 10;
     $rootScope.formAudioFile = "media/alert.mp3";
     $rootScope.isCheckAudio = true;
     $rootScope.slabs_access_token = '';
