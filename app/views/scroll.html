@@ -42,7 +42,8 @@
         <div class="col">
             <p class="h4 text-white">All Time Donors</p>
             <marquee behaviour="scroll" direction="left">
-                <span class="h4 text-white bg-dark align-middle" ng-repeat="e in allTimeDonors" class="text-light h4 align-middle">
+                <span class="h4 text-white bg-dark align-middle" ng-repeat="e in allTimeDonors"
+                    class="text-light h4 align-middle">
                     <strong>{{e.money | currency:"₹"}}</strong> {{e.name | uppercase}} &nbsp;&nbsp;
                 </span>
             </marquee>
@@ -63,26 +64,26 @@
         </div>
     </div>
 
-        <!-- paytm sponsors -->
-        <div class="row align-items-center" ng-if="allTimeDonors">
-            <div class="col">
-                <p class="h4 text-info align-baseline">
-                    PayTM Sponsors
-                </p>
-                <marquee behaviour="scroll" direction="left">
-                    <span class="h4 text-white bg-dark align-middle" ng-repeat="e in sponsors">
-                        <strong>{{e.money | currency:"₹"}}</strong> {{e.name | uppercase}} &nbsp;&nbsp;
-                    </span>
-                </marquee>
-            </div>
+    <!-- paytm sponsors -->
+    <div class="row align-items-center" ng-if="allTimeDonors">
+        <div class="col">
+            <p class="h4 text-info align-baseline">
+                PayTM Sponsors
+            </p>
+            <marquee behaviour="scroll" direction="left">
+                <span class="h4 text-white bg-dark align-middle" ng-repeat="e in sponsors">
+                    <strong>{{e.money | currency:"₹"}}</strong> {{e.name | uppercase}} &nbsp;&nbsp;
+                </span>
+            </marquee>
         </div>
+    </div>
 
     <!-- Recent Donator-->
     <div class="row align-items-center" ng-if="allTimeDonors">
         <div class="col">
             <p class="h4 text-info">Recent Donor</p>
             <span class="h4 text-white bg-dark align-middle">
-                <strong>{{recentDonor.money | currency:"₹"}}</strong> {{recentDonor.name | uppercase}} &nbsp;&nbsp;
+                &nbsp; <strong>{{recentDonor.money | currency:"₹"}}</strong> {{recentDonor.name | uppercase}} &nbsp;
             </span>
         </div>
     </div>
@@ -92,7 +93,7 @@
         <div class="col">
             <p class="h4 text-info">Biggest Donation</p>
             <span class="h4 text-white bg-dark align-middle">
-                <strong>{{highestDonor.money | currency:"₹"}}</strong> {{highestDonor.name | uppercase}} &nbsp;&nbsp;
+                &nbsp; <strong>{{highestDonor.money | currency:"₹"}}</strong> {{highestDonor.name | uppercase}} &nbsp;
             </span>
         </div>
     </div>
