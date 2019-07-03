@@ -1,15 +1,20 @@
 angular.module('paytm.ctrl.scroll', []).
-controller('scrollCtrl', ['$scope', '$rootScope', '$location', '$interval', '$window', '$http', function ($scope, $rootScope, $location, $interval, $window, $http) {
+controller('scrollCtrl', ['$scope', '$rootScope', '$timeout', '$interval', '$window', function ($scope, $rootScope, $timeout, $interval, $window) {
     $scope.title = "Scroll View";
     $scope.formDateData = $rootScope.formDateData;
     $scope.formDisplayAmount = $rootScope.formDisplayAmount;
 
     $scope.formAudioFile = $rootScope.formAudioFile = "media/alert.mp3";
     $scope.streamlabsdebug = true;
-    var paytmData = $rootScope.paytmData;
-    var unqEmailIds = $rootScope.unqEmailIds;
     $scope.scrollResult = true;
 
+    $scope.allTimeDonors = null;
+    $scope.recentDonor = null;
+    $scope.highestDonor = null;
+    $scope.moreThenDefined = null;
+
+    var paytmData = $rootScope.paytmData;
+    var unqEmailIds = $rootScope.unqEmailIds;
     var sname = [];
     var smoney = [];
     var sponsors = [];
@@ -88,17 +93,17 @@ controller('scrollCtrl', ['$scope', '$rootScope', '$location', '$interval', '$wi
                                 money: parseInt(data.money),
                                 date: moment(date, 'DD MMM YYYY HH:mm:ss').unix()
                             };
-                            streamlabsData = {
-                                name: blockData.name,
-                                message: blockData.money + ' received via PayTM',
-                                identifier: blockData.name,
-                                amount: parseFloat(blockData.money / 70).toFixed(2),
-                                currency: 'USD',
-                                date: blockData.date,
-                                access_token: $rootScope.streamlabsToken,
-                                skip_alert: 'no'
-                            };
-                            initStreamlabs();
+                            // streamlabsData = {
+                            //     name: blockData.name,
+                            //     message: blockData.money + ' received via PayTM',
+                            //     identifier: blockData.name,
+                            //     amount: parseFloat(blockData.money / 70).toFixed(2),
+                            //     currency: 'USD',
+                            //     date: blockData.date,
+                            //     access_token: $rootScope.streamlabsToken,
+                            //     skip_alert: 'no'
+                            // };
+                            // initStreamlabs();
                             /*
                             blockData.push(data.money);
                             blockData.push(data.name.toUpperCase());
@@ -159,37 +164,37 @@ controller('scrollCtrl', ['$scope', '$rootScope', '$location', '$interval', '$wi
         }
         runFunScript();
 
-        function initStreamlabs() {
-            var url = "https://streamlabs.com/api/v1.0";
-            var query = {
-                response_type: 'code',
-                client_id: 'IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS',
-                redirect_uri: 'http://paytm-alerts-alpha.herokuapp.com',
-                scope: 'donations.read+donations.create'
-            };
-            var queryToken = {
-                grant_type: 'authorization_code',
-                client_id: 'IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS',
-                client_secret: 'Fr0Sl3nG44zZJM2qFG2rbT8jf0BQG1y1oQBQtPx1',
-                redirect_uri: 'http://localhost:3000',
-                code: $rootScope.streamlabsToken
-            };
-            var queryString = Object.keys(queryToken).map(key => key + '=' + queryToken[key]).join('&');
-            var tokenUrl = url+'/token?'+queryString;
-            console.log(tokenUrl);
+        // function initStreamlabs() {
+        //     var url = "https://streamlabs.com/api/v1.0";
+        //     var query = {
+        //         response_type: 'code',
+        //         client_id: 'IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS',
+        //         redirect_uri: 'http://paytm-alerts-alpha.herokuapp.com',
+        //         scope: 'donations.read+donations.create'
+        //     };
+        //     var queryToken = {
+        //         grant_type: 'authorization_code',
+        //         client_id: 'IwAXDUMbv9kBkQ46udItsZemcagceYYMu3AMgTrS',
+        //         client_secret: 'Fr0Sl3nG44zZJM2qFG2rbT8jf0BQG1y1oQBQtPx1',
+        //         redirect_uri: 'http://localhost:3000',
+        //         code: $rootScope.streamlabsToken
+        //     };
+        //     var queryString = Object.keys(queryToken).map(key => key + '=' + queryToken[key]).join('&');
+        //     var tokenUrl = url+'/token?'+queryString;
+        //     console.log(tokenUrl);
     
-            var config = 'content-type';
-            $http.post(tokenUrl, queryString)
-                .then(
-                    function (res) {
-                        console.log('initStreamlabs := ' + JSON.stringify(res));
-                    },
-                    function (err) {
-                        console.log('ERROR initstreamlabs := ' + JSON.stringify(err));
-                    }
-                );
+        //     var config = 'content-type';
+        //     $http.post(tokenUrl, queryString)
+        //         .then(
+        //             function (res) {
+        //                 console.log('initStreamlabs := ' + JSON.stringify(res));
+        //             },
+        //             function (err) {
+        //                 console.log('ERROR initstreamlabs := ' + JSON.stringify(err));
+        //             }
+        //         );
     
-        };
+        // };
 
         /*
         function highestDonatorFn() {

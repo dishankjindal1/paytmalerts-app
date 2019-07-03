@@ -40,7 +40,7 @@
     <!-- All time Donators -->
     <div class="row align-items-center" ng-if="allTimeDonors">
         <div class="col">
-            <p class="h4 text-white">All Time Donors</p>
+            <p class="h4 text-info">All Time Donors</p>
             <marquee behaviour="scroll" direction="left">
                 <span class="h4 text-white bg-dark align-middle" ng-repeat="e in allTimeDonors"
                     class="text-light h4 align-middle">
@@ -50,10 +50,10 @@
         </div>
     </div>
 
-    <!-- 50+ money donators -->
-    <div class="row align-items-center" ng-if="allTimeDonors">
+    <!-- $$$ money donators -->
+    <div class="row align-items-center" ng-if="moreThenDefined">
         <div class="col">
-            <p class="h4 text-info align-baseline">Donor with amount more then
+            <p class="h4 text-info align-baseline">Donor with amount more than
                 <strong class="h4 text-warning align-baseline">{{formDisplayAmount | currency:"₹"}}</strong>
             </p>
             <marquee behaviour="scroll" direction="left">
@@ -65,7 +65,7 @@
     </div>
 
     <!-- paytm sponsors -->
-    <div class="row align-items-center" ng-if="allTimeDonors">
+    <!-- <div class="row align-items-center" ng-if="allTimeDonors">
         <div class="col">
             <p class="h4 text-info align-baseline">
                 PayTM Sponsors
@@ -76,10 +76,10 @@
                 </span>
             </marquee>
         </div>
-    </div>
+    </div> -->
 
     <!-- Recent Donator-->
-    <div class="row align-items-center" ng-if="allTimeDonors">
+    <div class="row align-items-center" ng-if="recentDonor">
         <div class="col">
             <p class="h4 text-info">Recent Donor</p>
             <span class="h4 text-white bg-dark align-middle">
@@ -89,7 +89,7 @@
     </div>
 
     <!-- HighestDonator of all time-->
-    <div class="row align-items-center" ng-if="allTimeDonors">
+    <div class="row align-items-center" ng-if="highestDonor">
         <div class="col">
             <p class="h4 text-info">Biggest Donation</p>
             <span class="h4 text-white bg-dark align-middle">
