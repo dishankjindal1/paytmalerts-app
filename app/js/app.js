@@ -1,6 +1,6 @@
 angular.module('paytm', ['ngRoute', 'paytm.ctrl.oauth', 'paytm.ctrl.home', 'paytm.ctrl.settings', 'paytm.ctrl.scroll']).
-config(['$locationProvider','$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider, $httpProvider) {
-    
+config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider, $httpProvider) {
+
     // $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('GiveMeCreditsOrShoutout#');
     //initialize get if not there
@@ -17,7 +17,7 @@ config(['$locationProvider','$routeProvider', '$httpProvider', function ($locati
     // extra
     $httpProvider.defaults.headers.common['Cache-Control'] = 'no-cache';
     $httpProvider.defaults.headers.common.Pragma = 'no-cache';
-    
+
     $routeProvider.
     when('/home', {
         controller: 'homeCtrl',
@@ -32,15 +32,15 @@ config(['$locationProvider','$routeProvider', '$httpProvider', function ($locati
         templateUrl: 'views/oauth.html'
     }).
     when('/scroll', {
-            controller: 'scrollCtrl',
-            templateUrl: 'views/scroll.html'
-        })
-        .otherwise({
-            redirectTo: '/home'
-        });
+        controller: 'scrollCtrl',
+        templateUrl: 'views/scroll.html'
+    }).
+    otherwise({
+        redirectTo: '/home'
+    });
 }]).
 
-controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$window', function ($scope, $rootScope, $location, $http, $window) {
+controller('mainAppCtrl', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
 
     $scope.title = "paytm alerts";
 
@@ -73,11 +73,11 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', '$http', '$windo
             'discoveryDocs': [discoveryUrl],
             'clientId': '189720157444-tajqkn9p9fbuu2o8fe5pleh4hsi7002l',
             'scope': SCOPE,
-            'ux_mode':'redirect',
-            'redirect_uri':'https://paytm-alerts-alpha.herokuapp.com'
+            'ux_mode': 'redirect',
+            'redirect_uri': 'http://localhost:3000'
         }).then(function () {
             GoogleAuth = gapi.auth2.getAuthInstance();
-            
+
             GoogleAuth.isSignedIn.listen(updateSigninStatus);
 
             var user = GoogleAuth.currentUser.get();

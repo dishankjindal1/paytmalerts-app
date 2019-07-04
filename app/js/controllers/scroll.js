@@ -131,36 +131,38 @@ controller('scrollCtrl', ['$scope', '$rootScope', '$timeout', '$interval', '$win
         var dupPaytmData = _.cloneDeep(paytmData);
 
         function runFunScript() {
+            var highestDonor = _.maxBy(dupPaytmData, 'money');
+            $scope.highestDonor = highestDonor;
+            
             var allTimeDonors = _.sortBy(dupPaytmData, 'date');
             allTimeDonors.reverse();
             $scope.allTimeDonors = allTimeDonors;
 
-            $scope.recentDonor = allTimeDonors[0];
-
-            var highestDonor = _.maxBy(dupPaytmData, 'money');
-            $scope.highestDonor = highestDonor;
-
             var moreThenDefined = _.remove(dupPaytmData, function (o) {
                 return o.money >= $rootScope.formDisplayAmount;
             });
-            $scope.moreThenDefined = _.sortBy(moreThenDefined, 'money');
+            moreThenDefined = _.sortBy(moreThenDefined, 'date');
+            moreThenDefined.reverse();
+            $scope.moreThenDefined = moreThenDefined;
 
-            _.forEach(dupPaytmData, function (e) {
-                smoney = [];
-                if (sname.indexOf(e.name) == -1) {
-                    sname.push(e.name);
-                    _.forEach(dupPaytmData, function (f) {
-                        if (f.name == e.name) {
-                            smoney.push(f.money);
-                        }
-                    });
-                    console.log(smoney);
-                    if (_.sum(smoney) >= 159) {
-                        sponsors.push(e.name);
-                    }
-                }
-            });
-            $scope.sponsors = sponsors;
+            $scope.recentDonor = allTimeDonors[0];
+
+            // _.forEach(dupPaytmData, function (e) {
+            //     smoney = [];
+            //     if (sname.indexOf(e.name) == -1) {
+            //         sname.push(e.name);
+            //         _.forEach(dupPaytmData, function (f) {
+            //             if (f.name == e.name) {
+            //                 smoney.push(f.money);
+            //             }
+            //         });
+            //         console.log(smoney);
+            //         if (_.sum(smoney) >= 159) {
+            //             sponsors.push(e.name);
+            //         }
+            //     }
+            // });
+            // $scope.sponsors = sponsors;
         }
         runFunScript();
 
