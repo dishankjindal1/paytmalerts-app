@@ -74,7 +74,7 @@ controller('mainAppCtrl', ['$scope', '$rootScope', '$location', function ($scope
             'clientId': '189720157444-tajqkn9p9fbuu2o8fe5pleh4hsi7002l',
             'scope': SCOPE,
             'ux_mode': 'redirect',
-            'redirect_uri': 'http://localhost:3000'
+            'redirect_uri': 'https://paytm-alerts-alpha.herokuapp.com'
         }).then(function () {
             GoogleAuth = gapi.auth2.getAuthInstance();
 
